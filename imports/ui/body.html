@@ -1,38 +1,47 @@
 <body>
   <div class="container">
     <header>
-      <h1>2017 National High School Mock Trial Championship</h1>
-
-      <form class="new-matchup">
-        <div class="form-group">
-          <label for="plaintiff"></label>
-          <input type="text" name="plaintiff" class="form-control" id="plaintiff" />
-        </div>
-        <div class="form-group">
-          <label for="defense"></label>
-          <input type="text" name="defense" class="form-control" id="defense" />
-        </div>
-        <div class="form-group">
-          <label for="courtRoomNum"></label>
-          <input type="text" name="courtRoomNum" class="form-control" id="courtRoomNum" />
-        </div>
-        <div class="form-group">
-          <label for="courtRoomName"></label>
-          <input type="text" name="courtRoomName" class="form-control" id="courtRoomName" />
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-        <!-- <input type="text" name="text" placeholder="Type to add new matchup" /> -->
-      </form>
+      <h1 class="text-center">2017 National High School Mock Trial Championship</h1>
     </header>
 
-    <ul>
-      {{#each matchups}}
-        {{> matchup}}
-      {{/each}}
-    </ul>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-center">Plaintiff</th>
+          <th class="text-center">Defense</th>
+          <th class="text-center">Courtroom Number</th>
+          <th class="text-center">Next Matchup</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each matchups}}
+          {{> matchup}}
+        {{/each}}
+      </tbody>
+    </table>
+
+    <footer>
+      <div class="row">
+        <div class="col-xs-5">
+          <h1 class="text-left">{{date}}</h1>
+        </div>
+        <div class="col-xs-2">
+          <h1 class="text-center">{{time.format "HH:mm:ss"}}</h1>
+        </div>
+        <div class="col-xs-5">
+          <h1 class="text-right">Trial Postings, Round: {{round}}</h1>
+        </div>
+      </div>
+    </footer>
+
   </div>
 </body>
 
 <template name="matchup">
-  <li>{{text}}</li>
+  <tr>
+    <td class="text-center">{{plt}}</td>
+    <td class="text-center">{{dft}}</td>
+    <td class="text-center">{{crtrm}}</td>
+    <td class="text-center">{{time}}</td>
+  </tr>
 </template>
