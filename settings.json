@@ -1,0 +1,8 @@
+{
+  "galaxy.meteor.com": {
+    "env": {
+      "ROOT_URL": "http://signage.meteorapp.com",
+      "MONGO_URL": "mongodb://signage:Woodmaster1!@ds133271.mlab.com:33271/signage"
+    }
+  }
+}
