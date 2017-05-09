@@ -1,7 +1,54 @@
-body {
+html, body {
+  margin-top: 10px;
   background-color: #101010;
+  color: #DDD;
+  height: 100%;
 }
 
-h1 {
-  color: #DDD;
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%auto;
+  margin: 0 auto -60px;
+}
+
+#push, #footer {
+  height: 60px;
+}
+
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.welcome {
+  font-size: 450%;
+  font-family: 'Kreon', serif;
+}
+
+.round {
+  font-size: 350%;
+  font-family: 'Kreon', serif;
+}
+
+th, td {
+  font-size: 250%;
+  font-family: 'Kreon', serif;
+}
+
+h3 {
+  font-size: 200%;
+  font-family: 'Kreon', serif;
+}
+
+// h1, h2, h3, h4, table, th, td, .panel {
+//   color: #DDD;
+// }
+
+table {
+  margin-top: 50px;
 }
