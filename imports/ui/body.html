@@ -6,48 +6,72 @@
       <header>
         <div class="row">
           <div class="col-sm-3">
-            <img src="images/seal.png" class="img-responsive" alt="District of Connecticut Seal" />
+            <img src="images/seal.png" class="" alt="District of Connecticut Seal" />
           </div>
           <div class="col-sm-6">
             <h1 class="welcome text-center">2017 National High School Mock Trial Championship</h1>
           </div>
           <div class="col-sm-3">
-            <img src="images/logo.png" class="img-responsive" alt="2017 National High School Mock Trial Championship Logo" />
+            <img src="images/logo.png" class="" alt="2017 National High School Mock Trial Championship Logo" />
           </div>
         </div>
       </header>
 
       <h1 class="round text-center">Trial Postings Round: {{round}}</h1>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="text-center">Plaintiff</th>
-            <th class="text-center">Defense</th>
-            <th class="text-center">Courtroom Number</th>
-            <th class="text-center">Next Matchup</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each matchups}}
-            {{> matchup}}
-          {{/each}}
-        </tbody>
-      </table>
+      <div class="row">
+        <div class="col-sm-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="text-center">Plaintiff</th>
+                <th class="text-center">Defense</th>
+                <th class="text-center">Courtroom</th>
+                <th class="text-center">Next Matchup</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each matchups1}}
+                {{> matchup}}
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="text-center">Plaintiff</th>
+                <th class="text-center">Defense</th>
+                <th class="text-center">Courtroom</th>
+                <th class="text-center">Next Matchup</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each matchups2}}
+                {{> matchup}}
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
 
       <div id="push"></div>
     </div>
 
     <div id="footer">
-      <div class="row">
-        <div class="col-xs-5">
-          <h3 class="text-left">{{date}}</h3>
-        </div>
-        <div class="col-xs-2">
-          <h3 class="text-center">{{time.format "hh:mm A"}}</h3>
-        </div>
-        <div class="col-xs-5">
-          <h3 class="text-right">Trial Postings, Round: {{round}}</h3>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-5">
+            <h3 class="text-left">{{date}}</h3>
+          </div>
+          <div class="col-xs-2">
+            <h3 class="text-center">{{time.format "hh:mm A"}}</h3>
+          </div>
+          <div class="col-xs-5">
+            <h3 class="text-right">Trial Postings, Round: {{round}}</h3>
+          </div>
         </div>
       </div>
     </div>

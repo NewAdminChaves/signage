@@ -12,17 +12,33 @@ import './body.html';
 //
 // })
 
+var control = 0;
+
+function scrollbar(){
+  if(event.keyCode == 122 && control == 0){
+    //remove scrollbar
+    $("body").css("overflow", "hidden");
+    control = 1;
+  } else {
+    //add scrollbar
+    $("body").css("overflow", "auto");
+    control = 0;
+  }
+}
+
 Template.body.helpers({
   // matchups() {
   //   return Matchups.find({}, { sort: { createdAt: -1 } });
   // },
-  matchups: [
-    { plt: 'Henry', dft: 'Mark', crtrm: '1', time: '12:30 PM' },
+  matchups1: [
+    { plt: 'EJG', dft: 'VNG', crtrm: '1', time: '12:30 PM' },
     { plt: 'CYH', dft: 'DDN', crtrm: '2', time: '12:30 PM' },
     { plt: 'EEG', dft: 'FLT', crtrm: '3', time: '12:30 PM' },
-    { plt: 'Chris', dft: 'Justin', crtrm: '4', time: '12:30 PM' },
+    { plt: 'HBV', dft: 'LQB', crtrm: '4', time: '12:30 PM' },
     { plt: 'IVM', dft: 'JPQ', crtrm: '5', time: '12:30 PM' },
     { plt: 'KPO', dft: 'LBC', crtrm: '6', time: '12:30 PM' },
+  ],
+  matchups2: [
     { plt: 'MQJ', dft: 'NLQ', crtrm: '7', time: '12:30 PM' },
     { plt: 'OXN', dft: 'PRW', crtrm: '8', time: '12:30 PM' },
     { plt: 'QOV', dft: 'RVC', crtrm: '9', time: '12:30 PM' },
@@ -47,22 +63,22 @@ Template.body.helpers({
   round: 1,
 });
 
-Template.body.events({
-  'submit .new-matchup'(event) {
-    // Prevent default browser form submit
-    event.preventDefault();
-
-    // Get value from form element
-    const target = event.target;
-    const text = target.text.value;
-
-    // Insert a matchup into the Collection
-    Matchups.insert({
-      text,
-      createdAt: new Date(), // current time
-    });
-
-    // Clear form
-    target.text.value = '';
-  },
-});
+// Template.body.events({
+//   'submit .new-matchup'(event) {
+//     // Prevent default browser form submit
+//     event.preventDefault();
+//
+//     // Get value from form element
+//     const target = event.target;
+//     const text = target.text.value;
+//
+//     // Insert a matchup into the Collection
+//     Matchups.insert({
+//       text,
+//       createdAt: new Date(), // current time
+//     });
+//
+//     // Clear form
+//     target.text.value = '';
+//   },
+// });
