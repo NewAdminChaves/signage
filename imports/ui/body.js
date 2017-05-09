@@ -1,30 +1,10 @@
 import { Template } from 'meteor/templating';
-// import { ReactiveVar } from 'meteor/reactive-var';
 
 import { Matchups } from '../api/matchups.js';
 
 import { reactiveMoment } from 'meteor/panter:moment-reactive';
 
 import './body.html';
-
-// Template.body.onCreated(function bodyOnCreated() {
-//   var timestamp = new ReactiveDict();
-//
-// })
-
-var control = 0;
-
-function scrollbar(){
-  if(event.keyCode == 122 && control == 0){
-    //remove scrollbar
-    $("body").css("overflow", "hidden");
-    control = 1;
-  } else {
-    //add scrollbar
-    $("body").css("overflow", "auto");
-    control = 0;
-  }
-}
 
 Template.body.helpers({
   // matchups() {
@@ -62,23 +42,3 @@ Template.body.helpers({
   },
   round: 1,
 });
-
-// Template.body.events({
-//   'submit .new-matchup'(event) {
-//     // Prevent default browser form submit
-//     event.preventDefault();
-//
-//     // Get value from form element
-//     const target = event.target;
-//     const text = target.text.value;
-//
-//     // Insert a matchup into the Collection
-//     Matchups.insert({
-//       text,
-//       createdAt: new Date(), // current time
-//     });
-//
-//     // Clear form
-//     target.text.value = '';
-//   },
-// });
