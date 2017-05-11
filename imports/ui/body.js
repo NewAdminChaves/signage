@@ -51,5 +51,9 @@ Template.body.helpers({
   time() {
     return momentReactive()
   },
-  round: 1,
+  round() {
+    var roundQuery = RoundCounter.findOne();
+
+    return roundQuery.round;
+  },
 });
