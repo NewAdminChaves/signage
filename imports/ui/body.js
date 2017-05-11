@@ -1,34 +1,87 @@
 import { Template } from 'meteor/templating';
 
 import { Matchups } from '../api/matchups.js';
+import { RoundCounter } from '../api/roundCounter.js';
 
 import { reactiveMoment } from 'meteor/panter:moment-reactive';
 
 import './body.html';
 
+// var countcountcount = "2";
+//
+// var count = RoundCounter.find();
+// console.log(count);
+//
+// console.log("Round Count: ");
+// console.log(Meteor.call('roundCounter.check'));
+
+
+// console.log(RoundCounter.find());
+//console.log(Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } ));
+// var roundQuery = RoundCounter.find( { _id: 1 } );
+
+// var roundQuery = Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } );
+
+// console.log("Round Query: ");
+// console.log(roundQuery);
+//
+// var roundCount = roundQuery.round;
+
 Template.body.helpers({
+  matchups1() {
+
+    // let whatever = Matchups.find( { _id: "1" } );
+    // console.log(whatever);
+    // var roundQuery = Matchups.find( { roundCount: "1" } );
+    // console.log(roundQuery);
+    // var roundQuery = RoundCounter.find();
+    // console.log(roundQuery);
+
+    var roundQuery = RoundCounter.findOne();
+    // console.log(roundQuery.round);
+    // var roundQuery = Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } );
+    // var roundQuery = Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } ).round;
+
+    // console.log("Round Query: ");
+    // console.log(roundQuery);
+
+    // return Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } );
+    // return Matchups.aggregate([
+      // { "$unwind": "$"}
+    // ]);
+
+    // let whatever = RoundCounter.findOne( { _id: 1 }, { _id: 0, round: 1 } ).round;
+
+    // console.log(whatever);
+
+    return Matchups.find( { $and: [ { round: roundQuery.round }, { col: "1" } ] } );
+
+  },
+  matchups2() {
+
+    var roundQuery = RoundCounter.findOne();
+
+    return Matchups.find( { $and: [ { round: roundQuery.round }, { col: "2" } ] } );
+  },
+
   // matchups1() {
-  //   return Matchups.find({});
+  //   return Matchups.find({ round: "1" });
   // },
   // matchups2() {
-  //   return Matchups.find( { round: "3" } );
+  //   return Matchups.find( { round: "2" } );
   // },
-  matchups1: [
-    { "plt": "EJG", "dft": "VNG", "crtrm": "1", "time": "12:30 PM" },
-    { "plt": "CYH", "dft": "DDN", "crtrm": "2", "time": "12:30 PM" },
-    { "plt": "EEG", "dft": "FLT", "crtrm": "3", "time": "12:30 PM" },
-    { "plt": "HBV", "dft": "LQB", "crtrm": "4", "time": "12:30 PM" },
-    { "plt": "IVM", "dft": "JPQ", "crtrm": "5", "time": "12:30 PM" },
-    { "plt": "KPO", "dft": "LBC", "crtrm": "6", "time": "12:30 PM" },
-  ],
-  matchups2: [
-    { "plt": "MQJ", "dft": "NLQ", "crtrm": "7", "time": "12:30 PM" },
-    { "plt": "OXN", "dft": "PRW", "crtrm": "8", "time": "12:30 PM" },
-    { "plt": "QOV", "dft": "RVC", "crtrm": "9", "time": "12:30 PM" },
-    { "plt": "SBN", "dft": "TPA", "crtrm": "10", "time": "12:30 PM" },
-    { "plt": "UEM", "dft": "VEW", "crtrm": "11", "time": "1:30 PM", "round": "3" },
-    { "plt": "WLS", "dft": "XBN", "crtrm": "12", "time": "1:30 PM", "round": "3" },
-  ],
+  // matchups1: [
+  //   { "plt": "Justin", "dft": "Anthony", "crtrm": "1", "time": "12:30 PM", "round": "1", "col": "1" },
+  //   { "plt": "CYH", "dft": "DDN", "crtrm": "2", "time": "12:30 PM", "round": "1", "col": "1" },
+  //   { "plt": "EEG", "dft": "FLT", "crtrm": "3", "time": "12:30 PM", "round": "2", "col": "1" },
+  //   { "plt": "HBV", "dft": "LQB", "crtrm": "4", "time": "12:30 PM", "round": "2", "col": "1" },
+  // ],
+  // matchups2: [
+  //   { "plt": "MQJ", "dft": "NLQ", "crtrm": "5", "time": "12:30 PM", "round": "1", "col": "2" },
+  //   { "plt": "OXN", "dft": "PRW", "crtrm": "6", "time": "12:30 PM", "round": "1", "col": "2" },
+  //   { "plt": "UEM", "dft": "VEW", "crtrm": "7", "time": "12:30 PM", "round": "2", "col": "2" },
+  //   { "plt": "WLS", "dft": "XBN", "crtrm": "8", "time": "12:30 PM", "round": "2", "col": "2" },
+  // ],
   date: function() {
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
