@@ -7,58 +7,13 @@ import { reactiveMoment } from 'meteor/panter:moment-reactive';
 
 import './body.html';
 
-// var countcountcount = "2";
-//
-// var count = RoundCounter.find();
-// console.log(count);
-//
-// console.log("Round Count: ");
-// console.log(Meteor.call('roundCounter.check'));
-
-
-// console.log(RoundCounter.find());
-//console.log(Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } ));
-// var roundQuery = RoundCounter.find( { _id: 1 } );
-
-// var roundQuery = Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } );
-
-// console.log("Round Query: ");
-// console.log(roundQuery);
-//
-// var roundCount = roundQuery.round;
-
 Template.body.helpers({
   matchups1() {
-
-    // let whatever = Matchups.find( { _id: "1" } );
-    // console.log(whatever);
-    // var roundQuery = Matchups.find( { roundCount: "1" } );
-    // console.log(roundQuery);
-    // var roundQuery = RoundCounter.find();
-    // console.log(roundQuery);
-
     var roundQuery = RoundCounter.findOne();
-    // console.log(roundQuery.round);
-    // var roundQuery = Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } );
-    // var roundQuery = Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } ).round;
-
-    // console.log("Round Query: ");
-    // console.log(roundQuery);
-
-    // return Matchups.find( { $and: [ { round: countcountcount }, { col: "1" } ] } );
-    // return Matchups.aggregate([
-      // { "$unwind": "$"}
-    // ]);
-
-    // let whatever = RoundCounter.findOne( { _id: 1 }, { _id: 0, round: 1 } ).round;
-
-    // console.log(whatever);
 
     return Matchups.find( { $and: [ { round: roundQuery.round }, { col: "1" } ] } );
-
   },
   matchups2() {
-
     var roundQuery = RoundCounter.findOne();
 
     return Matchups.find( { $and: [ { round: roundQuery.round }, { col: "2" } ] } );
